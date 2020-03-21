@@ -11,6 +11,6 @@ permalink: /about/
 
 I'm a software engineer @ Blend.com, mainly focus on backend developing, and I just finished my master degree in Electrical and Computer Engineering at Boston University. 
 
-I am pretty enthusiastic over developing customer oriented product, and have experience in full-stack engineering, big data engineering and also mobile application engineering. It's always a pleasure for me to explore new areas.
+I am pretty enthusiastic over developing customer oriented product with experience in full-stack engineering, big data engineering and also mobile application engineering. It's always a pleasure for me to explore new areas.
 
 This is the blog for me to introduce myself, and also share some valuable experience in problem solving, world exploring and new trend evaluating. Feel free to discuss with me here.
