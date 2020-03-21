@@ -5,13 +5,12 @@ description: Some description.
 permalink: /about/
 ---
 
-<img class="img-rounded" src="/assets/img/uploads/profile.png" alt="Thiago Rossener" width="200">
+<img class="img-rounded" src="https://raw.githubusercontent.com/8128/PicGo/master/IMG_5953.JPG" alt="tty" width="200">
 
 # About
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+I'm a software engineer @ Blend.com, mainly focus on backend developing, and I just finished my master degree in Electrical and Computer Engineering at Boston University. 
+
+I am pretty enthusiastic over developing customer oriented product, and have experience in full-stack engineering, big data engineering and also mobile application engineering. It's always a pleasure for me to explore new areas.
+
+This is the blog for me to introduce myself, and also share some valuable experience in problem solving, world exploring and new trend evaluating. Feel free to discuss with me here.
