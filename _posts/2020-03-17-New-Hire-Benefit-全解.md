@@ -11,6 +11,7 @@ category: life
 tags:
   - life
   - tips
+  - financial
 author: tty
 paginate: false
 ---

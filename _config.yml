@@ -10,6 +10,7 @@ tags:
   - novel
 email: tty8128@outlook.com
 disqus_username: disqus_k45Kdcz4Px
+paginate: 10
 show_hero: true
 menu:
   - title: Home
