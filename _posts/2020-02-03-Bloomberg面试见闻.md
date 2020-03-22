@@ -12,7 +12,7 @@ tags:
   - travel
   - blog
 author: tty
-paginate: false
+paginate: true
 ---
 
 ## Bloomberg
@@ -44,6 +44,8 @@ Bloomberg的大名想必各位早已有所耳闻。迈克尔彭博身为一位�
 那晚简直煎熬。这不是我第一次面试，但我不知道为什么就是平静不下来，躺在床上心率都有120，张口闭口就是behavior question，why bloomberg。可能我当时已经意识到我们寝室只有一个headcount了。
 
 于是第二天，没咋睡的我把头发吹成大人模样，熨了下衬衫就下楼吃早饭了。不得不说早饭还不错，并不是自助餐，你到楼下一做，把早餐券给服务员，一会他便端着热腾腾的面包，一盘水果和一杯红茶过来了。随便吃了点我便起身前往Bloomberg headquarter，731 Lexington avenue。
+
+<!--split-->
 
 ## Bloomberg HQ
 
