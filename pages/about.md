@@ -9,7 +9,7 @@ permalink: /about/
 
 # About
 
-I'm a software engineer @ Blend.com, mainly focus on backend developing, and I just finished my master degree in Electrical and Computer Engineering at Boston University. 
+I'm a backend software engineer @ Blend.com, and I just finished my master degree in Electrical and Computer Engineering at Boston University. 
 
 I am pretty enthusiastic over developing customer oriented product with experience in full-stack engineering, big data engineering and also mobile application engineering. It's always a pleasure for me to explore new areas.
 
