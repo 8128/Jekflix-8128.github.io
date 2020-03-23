@@ -27,8 +27,10 @@
 
                 {% include pagination-post.html progressBar=true %}
 
-                {% include toc.html html=content sanitize=true id="toc_container" h_min=1 h_max=3 %}
-
+                <div id="toc_container">
+                {% include toc.html html=content sanitize=true h_min=1 h_max=3 %}
+                </div>
+                
                 {{ content }}
 
                 {% include pagination-post.html %}
