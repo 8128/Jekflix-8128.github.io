@@ -174,9 +174,9 @@ I will ignore the basic common stuff
 - : ?
 
 - &&
-- ||
+- `||`
 
-the result of a logic operators is not always a boolean value. Eg, false || 'Mosh' === 'Mosh'
+the result of a logic operators is not always a boolean value. Eg, false \|\| 'Mosh' === 'Mosh'
 
 #### Falsy
 
@@ -189,7 +189,7 @@ the result of a logic operators is not always a boolean value. Eg, false || 'Mos
 
 Anything else is truthy
 
-it will return the first truthy value in the ||, eg, false || 1 || 2, it returns 1
+it will return the first truthy value in the`||`, eg, false `||` 1 `||` 2, it returns 1
 
 ### Bitwise Operators
 
