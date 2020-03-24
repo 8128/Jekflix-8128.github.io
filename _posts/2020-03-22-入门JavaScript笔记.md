@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  自学入门JavaScript笔记
+title:  入门JavaScript笔记
 date:   2020-03-22 20:20:00
 description: 前端入门之路
 subtitle: 
@@ -475,3 +475,167 @@ const sum = numbers.reduce((accumulator, currentValue) => {
 ```
 
 ## Function
+
+```javascript
+calcRectArea(3,4); // run it before the declaration is okay
+
+// this is a function declaration
+function calcRectArea(width, height) {
+  return width * height;
+}
+
+getRectArea(3,4); // run it before the expression then there will be error
+
+// this is a function expression, and is an anonymous(there is also named) function expression
+const getRectArea = function(width, height) {
+  return width * height;
+}
+```
+
+Hoisting: JavaScript engine will automatically move the function declaration to the top of the file
+
+Arguments: all the input elemments will be shown as argument in the function with there index. For a funtion who needs 2 elements, if you input 5 elements, that doesn't matter, the function will only use the first two number
+
+Default Value: same like python, define it in the parameters
+
+### Getter and Setter
+
+```javascript
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "en",
+  get lang() {
+    return this.language;
+  }
+  set lang(lang) {
+    this.language = lang;
+  }
+};
+
+// Set an object property using a setter:
+person.lang = "en";
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.lang;
+
+```
+
+### Try and catch
+
+#### The throw Statement
+
+The `throw` statement allows you to create a custom error.
+
+Technically you can **throw an exception (throw an error)**.
+
+```javascript
+throw "Too big";    // throw a text
+throw 500;          // throw a number
+throw new Error('value is invalid');
+```
+
+
+
+If you use `throw` together with `try` and `catch`, you can control program flow and generate custom error messages.
+
+#### Try catch finally
+
+```javascript
+function myFunction() {
+  var message, x;
+  message = document.getElementById("p01");
+  message.innerHTML = "";
+  x = document.getElementById("demo").value;
+  try {
+    if(x == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5) throw "too low";
+    if(x > 10) throw "too high";
+  }
+  catch(e) {
+    message.innerHTML = "Input is " + e;
+    alert(e);
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+```
+
+## Let and Var
+
+### ES6可以用let定义块级作用域变量
+
+在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以`{}`限定不了var声明变量的访问范围。
+例如：
+
+```javascript
+{ 
+  var i = 9;
+} 
+console.log(i);  // 9
+```
+
+ES6新增的`let`，可以声明块级作用域的变量。
+
+```javascript
+{ 
+  let i = 9;     // i变量只在 花括号内有效！！！
+} 
+console.log(i);  // Uncaught ReferenceError: i is not defined
+```
+
+### let 配合for循环的独特应用
+
+`let`非常适合用于 `for`循环内部的块级作用域。JS中的for循环体比较特殊，每次执行都是一个全新的独立的块作用域，用let声明的变量传入到 for循环体的作用域后，不会发生改变，不受外界的影响。看一个常见的面试题目：
+
+```javascript
+for (var i = 0; i <10; i++) {  
+  setTimeout(function() {  // 同步注册回调函数到 异步的 宏任务队列。
+    console.log(i);        // 执行此代码时，同步代码for循环已经执行完成
+  }, 0);
+}
+// 输出结果
+10   共10个
+// 这里面的知识点： JS的事件循环机制，setTimeout的机制等
+```
+
+如果把 `var`改成 `let`声明：
+
+```javascript
+// i虽然在全局作用域声明，但是在for循环体局部作用域中使用的时候，变量会被固定，不受外界干扰。
+for (let i = 0; i < 10; i++) { 
+  setTimeout(function() {
+    console.log(i);    //  i 是循环体内局部作用域，不受外界影响。
+  }, 0);
+}
+// 输出结果：
+0  1  2  3  4  5  6  7  8 9
+```
+
+### let没有变量提升与暂时性死区
+
+用`let`声明的变量，不存在变量提升。而且要求必须 等`let`声明语句执行完之后，变量才能使用，不然会报`Uncaught ReferenceError`错误。
+例如：
+
+```javascript
+console.log(aicoder);    // 错误：Uncaught ReferenceError ...
+let aicoder = 'aicoder.com';
+// 这里就可以安全使用aicoder
+```
+
+> ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+> 总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。
+
+### let变量不能重复声明
+
+let不允许在相同作用域内，重复声明同一个变量。否则报错：`Uncaught SyntaxError: Identifier 'XXX' has already been declared`
+
+例如：
+
+```javascript
+let a = 0;
+let a = 'sss';
+// Uncaught SyntaxError: Identifier 'a' has already been declared
+```
