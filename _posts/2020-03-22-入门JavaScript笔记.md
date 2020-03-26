@@ -20,6 +20,8 @@ paginate: false
 
 本笔记基于udemy课程JavaScript basics for beginners，你可以在YouTube上看到相关试听视频
 
+部分基于udemy课程Modern JavaScript From The Beginning
+
 部分笔记来源：[JavaScript](https://wangdoc.com/javascript/index.html) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
 
 关于ES6：[ES6](https://es6.ruanyifeng.com/)
@@ -27,10 +29,10 @@ paginate: false
 ## Prerequisite
 
 1. 安装live server 插件 in vscode
-
 2. 在项目新建一个hello world的html，右键你的html然后用live server打开
-
 3. 假如你html有改动，在html中的内容会自动刷新到live server
+
+推荐：bracket pair colorizer、JavaScript (ES6) code snippets
 
 基础：
 
