@@ -31,7 +31,7 @@ posts = loadPostsSync();
 doTheNextThing();
 ```
 
-如上所示，必须先把第一个函数执行完了，第二个函数才能执行。众所周知，JavaScript不支持多线程，那么node.js又是怎么实现高并发的呢？就是靠异步。现在的环境下一个工程往往会受制于读写时间，而不是真正的处理运算时间。假如我们遇到了读写瓶颈，我们就暂时先搁置手上的工作，优先去处理下一步的内容，随后等到读写完成，再次回来捡起地上的工作，这就实现了异步。
+如上所示，必须先把第一个函数执行完了，第二个函数才能执行。众所周知，JavaScript约等于没有多线程，那么node.js又是怎么实现高并发的呢？就是靠异步。现在的环境下一个工程往往会受制于读写时间，而不是真正的处理运算时间。假如我们遇到了读写瓶颈，我们就暂时先搁置手上的工作，优先去处理下一步的内容，随后等到读写完成，再次回来捡起过去仍在地上的工作，这就实现了异步。
 
 ```javascript
 loadPostsAsync(function (){
@@ -1760,7 +1760,7 @@ promisify(obj.getData)().then(console.log) // { name: 'Niko', age: 18 }
 
 1. 如果目标函数存在
 
-   ```
+   ```js
    promisify.custom
    ```
 
@@ -1774,7 +1774,7 @@ promisify(obj.getData)().then(console.log) // { name: 'Niko', age: 18 }
 添加了这个`custom`属性以后，就不用再担心使用方针对你的函数调用`promisify`了。
 而且可以验证，赋值给`custom`的函数与`promisify`返回的函数地址是一处：
 
-```
+```js
 obj.getData[promisify.custom] = async () => ({ name: 'Niko', age: 18 })
 
 // 上边的赋值为 async 函数也可以改为普通函数，只要保证这个普通函数会返回 Promise 实例即可
@@ -1784,41 +1784,37 @@ obj.getData[promisify.custom] = () => Promise.resolve({ name: 'Niko', age: 18 })
 obj.getData[promisify.custom] = () => new Promise(resolve({ name: 'Niko', age: 18 }))
 
 console.log(obj.getData[promisify.custom] === promisify(obj.getData)) // true
-复制代码
 ```
 
 #### 一些内置的 custom 处理
 
 在一些内置包中，也能够找到`promisify.custom`的踪迹，比如说最常用的`child_process.exec`就内置了`promisify.custom`的处理：
 
-```
+```js
 const { exec } = require('child_process')
 const { promisify } = require('util')
 
 console.log(typeof exec[promisify.custom]) // function
-复制代码
 ```
 
 因为就像前边示例中所提到的曲线救国的方案，官方的做法也是将函数签名中的参数名作为`key`，将其所有参数存放到一个`Object`对象中进行返回，比如`child_process.exec`的返回值抛开`error`以外会包含两个，`stdout`和`stderr`，一个是命令执行后的正确输出，一个是命令执行后的错误输出：
 
-```
+```js
 promisify(exec)('ls').then(console.log)
 // -> { stdout: 'XXX', stderr: '' }
-复制代码
 ```
 
 或者我们故意输入一些错误的命令，当然了，这个只能在`catch`模块下才能够捕捉到，一般命令正常执行`stderr`都会是一个空字符串：
 
-```
+```js
 promisify(exec)('lss').then(console.log, console.error)
 // -> { ..., stdout: '', stderr: 'lss: command not found' }
-复制代码
 ```
 
 包括像`setTimeout`、`setImmediate`也都实现了对应的`promisify.custom`。
 之前为了实现`sleep`的操作，还手动使用`Promise`封装了`setTimeout`：
 
-```
+```js
 const sleep = promisify(setTimeout)
 
 console.log(new Date())
@@ -1826,7 +1822,6 @@ console.log(new Date())
 await sleep(1000)
 
 console.log(new Date())
-复制代码
 ```
 
 ### 内置的 promisify 转换后函数
@@ -1835,7 +1830,7 @@ console.log(new Date())
 
 而且我本人觉得这是一个很好的指引方向，因为之前的工具实现，有的选择直接覆盖原有函数，有的则是在原有函数名后边增加`Async`进行区分，官方的这种在模块中单独引入一个子模块，在里边实现`Promise`版本的函数，其实这个在使用上是很方便的，就拿`fs`模块进行举例：
 
-```
+```js
 // 之前引入一些 fs 相关的 API 是这样做的
 const { readFile, stat } = require('fs')
 
@@ -1843,7 +1838,6 @@ const { readFile, stat } = require('fs')
 const { readFile, stat } = require('fs').promises
 // 或者
 const { promises: { readFile, stat } } = require('fs')
-复制代码
 ```
 
 后边要做的就是将调用`promisify`相关的代码删掉即可，对于其他使用`API`的代码来讲，这个改动是无感知的。
