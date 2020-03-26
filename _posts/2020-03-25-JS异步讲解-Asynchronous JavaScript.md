@@ -20,7 +20,7 @@ paginate: false
 
 部分笔记来源：udemy-modern JavaScript from the beginning
 
-[cnblog](https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html)
+[cnblog](https://www.cnblogs.com/moltboy/archive/2013/04/24/3040213.html) [dayTimeAffect](https://juejin.im/post/5d89844ae51d4561ff6668f3)
 
 ## 什么是异步 Asynchronous
 
@@ -2036,8 +2036,6 @@ const func = promisify(obj.getName) // 错误的 this
 
 ## Js异步执行顺序
 
-本文来自作者：[dayTimeAffect](https://juejin.im/post/5d89844ae51d4561ff6668f3)
-
 今天在重温promise的时候，突然发现了一个有趣的题目：
 
 ```js
@@ -2071,7 +2069,7 @@ const func = promisify(obj.getName) // 错误的 this
 1 9 5 0 6 2 7 4 8 3
 ```
 
-## 简要讲述
+### 简要讲述
 
 首先我们知道JS分为了同步和异步，并且是顺序是先同步后异步，也就是同步代码执行完成后，哪怕异步代码到了它执行的时候，也会先让同步执行完。但是JS的执行顺序还可以分得更细，那就是异步的顺序。 我们知道很多异步任务，比如：
 
@@ -2085,7 +2083,7 @@ setTimeout, setInterval, setImmediate, Promises.then, Promise.catch
 
 在异步任务执行过程中遇到宏任务与微任务，将其依次放入当前事件循环队列中。
 
-## 例题描述
+### 例题描述
 
 首先执行主线程，也就是script（script是宏任务），因为此时没有微任务
 
