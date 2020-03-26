@@ -3,10 +3,10 @@ layout: post
 title:  入门JavaScript笔记
 date:   2020-03-22 20:20:00
 description: 前端入门之路
-subtitle: 
+subtitle:
 comments: true
 image: https://raw.githubusercontent.com/8128/PicGo/master/20200322203138.png
-optimized_image: 
+optimized_image:
 category: tutorial
 tags:
   - tutorial
@@ -60,9 +60,9 @@ Variable不能是保留字（reserved keyword），最好有意义，并且不�
 
 JavaScript共有两种value可以assign给variable，一种是primitives(aka. value types)，一种是reference type，
 
-### rimitives
+### Primitives
 
-- tring
+- String
 - Number（在JavaScript中没有float，double这种类型，只有统一的number）
 - Boolean
 - undefined（是一种type，同时是一个value）
@@ -204,7 +204,7 @@ it will return the first truthy value in the`||`, eg, false `||` 1 `||` 2, it re
 
 
 
-## Control flow 
+## Control flow
 
 I will ignore the parts which is the same as Java (if...else..., while, do...while, switch)
 
@@ -216,12 +216,12 @@ const person = {
   age: 30
 };
 
-for (let key in person) 
+for (let key in person)
 	console.log(key, person[key]);
 
 const colors = ['red','green','blue'];
 //get you the index with 'in'
-for (let index in colors) 
+for (let index in colors)
   console.log(index, colors[index]);
 
 //get you the data inside of the array with 'of'
@@ -1210,18 +1210,18 @@ function myFunction() {
 例如：
 
 ```javascript
-{ 
+{
   var i = 9;
-} 
+}
 console.log(i);  // 9
 ```
 
 ES6新增的`let`，可以声明块级作用域的变量。
 
 ```javascript
-{ 
+{
   let i = 9;     // i变量只在 花括号内有效！！！
-} 
+}
 console.log(i);  // Uncaught ReferenceError: i is not defined
 ```
 
@@ -1244,7 +1244,7 @@ for (var i = 0; i <10; i++) {
 
 ```javascript
 // i虽然在全局作用域声明，但是在for循环体局部作用域中使用的时候，变量会被固定，不受外界干扰。
-for (let i = 0; i < 10; i++) { 
+for (let i = 0; i < 10; i++) {
   setTimeout(function() {
     console.log(i);    //  i 是循环体内局部作用域，不受外界影响。
   }, 0);
