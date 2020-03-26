@@ -10,7 +10,7 @@ tags:
   - novel
 email: tty8128@outlook.com
 disqus_username: disqus_k45Kdcz4Px
-# paginate: 
+# paginate:
 show_hero: true
 menu:
   - title: Home
@@ -100,4 +100,4 @@ exclude: [
 ]
 
 # Theme
-version: v3.0.2
+version: 2020.02.03
