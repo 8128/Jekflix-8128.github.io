@@ -1858,7 +1858,7 @@ const { promises: { readFile, stat } } = require('fs')
 前两个问题，使用前边提到的`promisify.custom`都可以解决掉。
 但是第三项可能会在某些情况下被我们所忽视，这并不是`promisify`独有的问题，就一个很简单的例子：
 
-```
+```js
 const obj = {
   name: 'Niko',
   getName () {
@@ -1871,7 +1871,6 @@ obj.getName() // Niko
 const func = obj.getName
 
 func() // undefined
-复制代码
 ```
 
 类似的，如果我们在进行`Promise`转换的时候，也是类似这样的操作，那么可能会导致生成后的函数`this`指向出现问题。
@@ -1883,7 +1882,7 @@ func() // undefined
 不过这样的问题也是建立在`promisify`转换后的函数被赋值给其他变量的情况下会发生。
 如果是类似这样的代码，那么完全不必担心`this`指向的问题：
 
-```
+```js
 const obj = {
   name: 'Niko',
   getName (callback) {
@@ -1896,7 +1895,6 @@ obj.XXX = promisify(obj.getName)
 
 // 如果赋值给了其他变量，那么这里就需要注意 this 的指向了
 const func = promisify(obj.getName) // 错误的 this
-复制代码
 ```
 
 ### 小结
