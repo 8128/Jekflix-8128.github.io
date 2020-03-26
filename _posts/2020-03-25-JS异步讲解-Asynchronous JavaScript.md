@@ -2077,9 +2077,9 @@ const func = promisify(obj.getName) // 错误的 this
 setTimeout, setInterval, setImmediate, Promises.then, Promise.catch
 ```
 
-甚至还有nodejs中的process.nextTick等，就像我们知道process.nextTick比promise先执行一样。那么这些异步事件是谁先执行谁后执行呢。 这涉及到了事件循环(event loop)。事件循环也就是事件出入栈。 上面说了这么多异步任务，我们先把它们分为两类： 宏任务（macro-task）：setTimeout, setInterval, setImmediate 微任务（micro-task）：Promises.then, Promise.catch
+甚至还有nodejs中的process.nextTick等，就像我们知道process.nextTick比promise先执行一样。那么这些异步事件是谁先执行谁后执行呢。 这涉及到了事件循环(event loop)。事件循环也就是事件出入栈。 上面说了这么多异步任务，我们先把它们分为两类： **宏任务（macro-task）**：setTimeout, setInterval, setImmediate **微任务（micro-task）**：Promises.then, Promise.catch
 
-然后我们再明白一个概念：先执行微任务，再执行宏任务。这种执行是，先执行清空微任务队列，再执行宏任务，当当前宏任务执行完后，微任务队列中又有微任务，再次将微任务队列执行完，再执行下一个宏任务。
+然后我们再明白一个概念：**先执行微任务，再执行宏任务**。这种执行是，**先执行清空微任务队列，再执行宏任务，当当前宏任务执行完后，微任务队列中又有微任务，再次将微任务队列执行完，再执行下一个宏任务**。
 
 在异步任务执行过程中遇到宏任务与微任务，将其依次放入当前事件循环队列中。
 
