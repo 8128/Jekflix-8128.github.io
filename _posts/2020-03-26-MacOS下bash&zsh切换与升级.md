@@ -16,7 +16,7 @@ paginate: false
 
 ---
 
-zsh和bash都是shell，linux默认是bash，现在macOS最新版的系统Catalina默认是zsh。很多小伙伴的
+zsh和bash都是shell，linux默认是bash，现在macOS最新版的系统Catalina默认是zsh。很多小伙伴可能想在Mac中切换bash到zsh，或者zsh到bash
 
 ## 切换系统默认shell
 
@@ -35,6 +35,10 @@ $ chsh -s /bin/bash
 ```
 
 重启终端即可。
+
+
+
+还有一种方法是在左上角苹果->System Preference-> Users & Groups -> 用密码解锁左下角高级设置 -> 右键用户 -> 在login shell选择bash
 
 
 
