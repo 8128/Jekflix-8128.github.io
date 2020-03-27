@@ -1,0 +1,103 @@
+# Site Settings
+name: 8128's Blog
+title: 8128's Blog | Code & Life
+description: 8128's blog powered by Jekflix
+tags:
+  - travel
+  - code
+  - life
+  - tutorial
+  - novel
+email: tty8128@outlook.com
+disqus_username: disqus_k45Kdcz4Px
+# paginate:
+show_hero: true
+menu:
+  - title: Home
+    url: /
+  - title: Tags
+    url: /tags
+  - title: About
+    url: /about
+  - title: Contact
+    url: /contact
+
+
+# Social Media Settings
+# Remove the item if you don't need it
+github_username: 8128
+facebook_username: tty8128
+twitter_username: adkmrx
+instagram_username: adkmrx
+linkedin_username: tty
+
+
+# Posts Settings
+show_time_bar: true
+show_modal_on_exit: false
+show_modal_on_finish_post: true
+two_columns_layout: true
+
+
+# Advanced Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://8128.github.io/" # the base hostname & protocol for your site
+google_analytics: "UA-158741918-1"
+language: "en"
+categories_folder: category
+sent_message_url: "/contact/message-sent/"
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+collections:
+  authors:
+    output: true
+paginate_path: "/page/:num/"
+show_get_theme_btn: false
+use_logo: false
+
+# Content paginator
+paginate_content:
+  enabled: true
+  debug: false
+  collections:
+    - posts
+  auto: true
+  separator: "<!--split-->"
+  permalink: "/:num/"
+  seo_canonical: true
+  properties:
+    part:
+      is_generated: true
+    last:
+      is_generated: true
+    single:
+      is_generated: true
+
+# SASS
+sass:
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-paginate-content
+
+# Exclude my node related stuff
+exclude: [
+  'package.json',
+  'package-lock.json',
+  'src',
+  'node_modules',
+  'initpost.sh',
+  'Gemfile',
+  'Gemfile.lock',
+  'gulpfile.js',
+  'README.md'
+]
+
+# Theme
+version: 2020.02.03
