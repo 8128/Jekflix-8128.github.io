@@ -3,14 +3,6 @@
     {% include head.html %}
     <body class="has-push-menu">
         <section class="post {% if site.two_columns_layout %}two-columns{% else %}one-column{% endif %}">
-
-            {% unless page.fullwidth == true %}
-            <nav class="bs-docs-sidebar ">
-            <ul id="sideNav" class="nav bs-docs-sidenav">
-            <!-- code will be generated in application.js -->
-            </ul>
-            </nav>
-            {% endunless %}
             {% include minutes-to-read.html %}
             {% include svg-icons.html %}
             {% include header.html %}
@@ -66,6 +58,21 @@
                 </aside>
             {% endif %}
 
+        <!-- directory side navigation -->
+        {% unless page.fullwidth == true %}
+        <div class="col-md-3" role="complementary">
+          <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+            <ul id="sideNav" class="nav bs-docs-sidenav">
+
+              <!-- code will be generated in application.js -->
+
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+          </nav>
+        </div> <!-- col-md-3 -->
+        {% endunless %}
         </section>
 
         <!-- Add time bar only for pages without pagination -->
