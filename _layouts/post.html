@@ -2,6 +2,13 @@
 <html lang="{{ site.language }}" class="no-js">
     {% include head.html %}
     <body class="has-push-menu">
+        {% unless page.fullwidth == true %}
+        <nav class="bs-docs-sidebar ">
+        <ul id="sideNav" class="nav bs-docs-sidenav">
+        <!-- code will be generated in application.js -->
+        </ul>
+        </nav>
+        {% endunless %}
         {% include minutes-to-read.html %}
         {% include svg-icons.html %}
         {% include header.html %}
