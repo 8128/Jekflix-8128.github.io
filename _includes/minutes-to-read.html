@@ -1,9 +1,0 @@
-{% assign words = content | strip_html | strip_newlines | size %}
-
-{% if words < 600 %}
-  {% assign totalMinutes = 1 %}
-{% else %}
-  {% assign totalMinutes = words | divided_by:600 %}
-{% endif %}
-
-{% assign minutesText = totalMinutes | append: ' min to read' %}
